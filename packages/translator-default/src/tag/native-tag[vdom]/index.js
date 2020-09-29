@@ -97,7 +97,7 @@ export default function(path) {
             t.stringLiteral(`on${eventName}`),
             t.callExpression(
               t.memberExpression(
-                file._componentDefIdentifier,
+                t.identifier("_component"),
                 t.identifier("d")
               ),
               delegateArgs

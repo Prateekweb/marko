@@ -221,7 +221,7 @@ export const visitor = {
                 [
                   t.identifier("input"),
                   t.identifier("out"),
-                  file._componentDefIdentifier,
+                  t.identifier("_component"),
                   t.identifier("component"),
                   t.identifier("state")
                 ],

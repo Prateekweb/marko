@@ -59,7 +59,7 @@ export default function(path) {
             t.stringLiteral(`on${eventName}`),
             t.callExpression(
               t.memberExpression(
-                file._componentDefIdentifier,
+                t.identifier("_component"),
                 t.identifier("d")
               ),
               delegateArgs
@@ -85,7 +85,7 @@ export default function(path) {
     const needsDataMarkoAttr = isSplit || isImplicit || isPreserved(path);
 
     if (needsDataMarkoAttr) {
-      const dataMarkoArgs = [t.identifier("out"), file._componentDefIdentifier];
+      const dataMarkoArgs = [t.identifier("out"), t.identifier("_component")];
 
       if (tagProperties.length) {
         // TODO we should pre evaluate this if it is static.
@@ -97,7 +97,7 @@ export default function(path) {
           dataMarkoArgs.push(t.numericLiteral(0));
         }
 
-        dataMarkoArgs.push(key, file._componentDefIdentifier);
+        dataMarkoArgs.push(key, t.identifier("_component"));
       }
 
       if (dataMarkoArgs.length > 2) {
